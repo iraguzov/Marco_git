@@ -28,7 +28,7 @@ jobs:
 
     - name: Install Playwright browsers
       run: |
-        playwright install
+        python -m playwright install
 
     - name: Run Python script
       run: |
