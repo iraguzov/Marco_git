@@ -27,6 +27,26 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install playwright 
 
+    - name: Run Playwright tests with Allure results
+      run: |
+        pytest --alluredir=allure-results
+
+    - name: Download Allure
+      run: |
+        curl -o allure-commandline.zip -L https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.zip
+        unzip allure-commandline.zip -d /opt/allure
+        export PATH=$PATH:/opt/allure/allure-2.21.0/bin
+
+    - name: Generate Allure report
+      run: |
+        allure generate allure-results --clean -o allure-report
+
+    - name: Upload Allure report as an artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: allure-report
+
     - name: Install Playwright browsers
       run: |
         python -m playwright install
