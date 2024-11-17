@@ -37,6 +37,11 @@ jobs:
         curl -o allure-commandline.zip -L https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.zip
         unzip allure-commandline.zip -d /opt/allure
         export PATH=$PATH:/opt/allure/allure-2.21.0/bin
+        sudo ln -s /opt/allure/allure-2.21.0/bin/allure /usr/bin/allure
+
+    - name: Verify Allure Installation
+      run: |
+        allure --version
 
     - name: Generate Allure report
       run: |
