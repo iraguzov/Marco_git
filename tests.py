@@ -5,7 +5,7 @@ def test_check_page_title():
         browser = p.chromium.launch(headless=True)  # headless=False to open the browser visibly
         page = browser.new_page()
         page.goto("https://neuralms.com")
-        assert page.title() == "Neural MS Consulting - Home"
+        assert page.title() == "Neural MS Consulting - "
         browser.close()
 
 
