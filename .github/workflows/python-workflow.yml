@@ -29,7 +29,7 @@ jobs:
 
     - name: Run Playwright tests with Allure results
       run: |
-        pytest tests --alluredir=allure-results
+        pytest test --alluredir=allure-results
 
     - name: Download Allure
       run: |
@@ -47,6 +47,6 @@ jobs:
         name: allure-report
         path: allure-report
 
-    - name: Run Python script
-      run: |
-        python test.py
+#    - name: Run Python script
+#      run: |
+#        python test.py
