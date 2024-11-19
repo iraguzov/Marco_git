@@ -1,12 +1,13 @@
 name: Run Python Code with allure and gh pages
 
 on:
-  push:
-    branches:
-      - second
-  pull_request:
-    branches:
-      - second
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - second
+#  pull_request:
+#    branches:
+#      - second
 
 jobs:
   run-python:
