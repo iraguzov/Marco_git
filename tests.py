@@ -8,5 +8,4 @@ def test_check_page_title():
         assert page.title() == "Neural MS Consulting - "
         browser.close()
 
-
-test_check_page_title()
+# test_check_page_title()
