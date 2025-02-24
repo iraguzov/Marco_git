@@ -36,10 +36,6 @@ jobs:
         export PATH=$PATH:/opt/allure/allure-2.21.0/bin
         sudo ln -s /opt/allure/allure-2.21.0/bin/allure /usr/bin/allure
 
-    - name: Verify Allure Installation
-      run: |
-        allure --version
-
     - name: Generate Allure report
       run: |
         allure generate allure-results --clean -o allure-report
@@ -55,7 +51,7 @@ jobs:
         git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
     - name: Upload Allure report as an artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: allure-report
         path: allure-report
